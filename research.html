@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Research | Heirtami Paswet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts and Font Awesome for icons -->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:700,800|Merriweather:300" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Merriweather', serif;
+      background: #f7fafc;
+      margin: 0;
+      color: #232946;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav {
+      background: #232946;
+      color: #fff;
+      padding: 1.1rem 0;
+      text-align: center;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 1.13rem;
+      letter-spacing: 0.03em;
+      box-shadow: 0 2px 10px #0001;
+    }
+    .nav a, .nav .dropbtn {
+      color: #fff;
+      margin: 0 1.3rem;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+    }
+    .nav a:hover, .nav .dropbtn:hover {
+      color: #1a4d8f;
+    }
+    .dropdown {
+      display: inline-block;
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #fff;
+      min-width: 130px;
+      box-shadow: 0 6px 24px #0002;
+      border-radius: 6px;
+      z-index: 10;
+      border: 1px solid #e0e6ef;
+    }
+    .dropdown-content a {
+      color: #232946;
+      padding: 0.7em 1.2em;
+      display: block;
+      text-align: left;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      transition: background 0.2s, color 0.2s;
+      margin: 0;
+    }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-content a:hover {
+      background: #f0f4fa;
+      color: #1a4d8f;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2.5rem auto 1rem auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 32px #0001;
+      padding: 2.5rem 2rem;
+      flex: 1 0 auto;
+    }
+    h1 {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 1.5rem;
+      color: #232946;
+      margin-bottom: 2rem;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    .research-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .research-row {
+      display: flex;
+      gap: 1.7rem;
+      align-items: flex-start;
+      border-bottom: 1px solid #e0e6ef;
+      padding-bottom: 2rem;
+    }
+    .research-img {
+      width: 220px;
+      height: 135px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #e5e5e5;
+      flex-shrink: 0;
+      border: 1px solid #e0e6ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2em;
+      color: #bfc8e6;
+    }
+    .research-main {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .research-tag {
+      display: inline-block;
+      background: #bfc8e6;
+      color: #232946;
+      font-size: 0.93em;
+      font-weight: 700;
+      border-radius: 4px;
+      padding: 0.18em 0.7em;
+      margin-bottom: 0.8em;
+      letter-spacing: 0.03em;
+    }
+    .research-title {
+      font-family: 'Work Sans', sans-serif;
+      font-size: 1.3rem;
+      color: #1a4d8f;
+      margin: 0 0 0.2em 0;
+      font-weight: 700;
+      line-height: 1.2;
+      text-decoration: none;
+      display: block;
+    }
+    .research-summary {
+      color: #333;
+      font-size: 1.06rem;
+      margin-bottom: 0.7em;
+      margin-top: 0.3em;
+    }
+    .research-meta {
+      font-size: 0.97em;
+      color: #555;
+      margin-bottom: 0.3em;
+    }
+    .research-author {
+      color: #1a4d8f;
+      font-style: italic;
+      font-size: 0.98em;
+      margin-right: 0.8em;
+      text-decoration: none;
+    }
+    .research-link {
+      color: #1a4d8f;
+      text-decoration: underline;
+      font-weight: 600;
+      font-size: 1em;
+      margin-top: 0.3em;
+      display: inline-block;
+    }
+    .research-link:hover {
+      color: #174072;
+    }
+    @media (max-width: 700px) {
+      .research-row { flex-direction: column; align-items: stretch; gap: 1rem; }
+      .research-img { width: 100%; height: 160px; }
+    }
+    @media (max-width: 500px) {
+      .container { padding: 0.6rem; }
+      .research-img { height: 110px; }
+    }
+    footer {
+      background: #232946;
+      color: #fff;
+      padding: 1.2rem 0 1rem 0;
+      text-align: center;
+      border-radius: 0 0 14px 14px;
+      margin: 0 auto;
+      max-width: 900px;
+      width: 100%;
+      font-size: 1.1rem;
+    }
+    .social-links a {
+      color: #fff;
+      margin: 0 0.7rem;
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: color 0.2s;
+      vertical-align: middle;
+    }
+    .social-links a:hover { color: #1a4d8f; }
+    .email-link {
+      color: #fff;
+      margin-left: 1rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      vertical-align: middle;
+    }
+    .email-link:hover { text-decoration: underline; color: #1a4d8f; }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <span class="dropbtn">Articles <i class="fas fa-caret-down" style="font-size:0.85em;"></i></span>
+      <div class="dropdown-content">
+        <a href="articles-pnar.html">Pnar</a>
+        <a href="articles-english.html">English</a>
+      </div>
+    </div>
+    <a href="photos.html">Photos</a>
+    <a href="research.html">Research</a>
+    <a href="resume.html">Resume</a>
+  </div>
+  <div class="container">
+    <h1>RESEARCH & PUBLICATIONS</h1>
+    <div class="research-list">
+      <!-- PRE Article -->
+      <div class="research-row">
+        <div class="research-img">
+          <!-- Optionally use an image related to your research or a journal logo -->
+          <i class="fas fa-flask"></i>
+        </div>
+        <div class="research-main">
+          <span class="research-tag">JOURNAL</span>
+          <a class="research-title" href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.111.034204" target="_blank">
+            Experimental evidence of community switching en route to global synchronization
+          </a>
+          <div class="research-summary">
+            Complex networks are made up of communities wherein dynamics occur. Here, a community is defined as an ensemble of identical Wien-bridge oscillators that are nearly synchronized. We explore experimental evidence of community switching, i.e., a subset of oscillators in a community synchronizing their frequencies to those of the other community. We demonstrate this phenomenon by varying the network connectivity and interaction strength. Employing Wien-bridge oscillators, we study experimentally, as well as in LTspice simulations, the phenomenon where an oscillator synchronizes its frequency to that of its neighboring community en route to global synchronization. Our results are in agreement with numerical simulations of the Kuramoto model reported by Kato and Kori in their novel work involving community switching. Due to the presence of noise, hysteresis is also observed in our experiment but not in LTspice simulations. Lastly, the onset of global synchrony for different topologies is studied.
+          </div>
+          <div class="research-meta">
+            By <span class="research-author">Sapna Yadav, Taniya Khatun, <b>Heirtami Paswet</b>, and P. Parmananda</span>
+            &middot; <em>Physical Review E</em>, <b>111</b>, 034204 (2025)
+          </div>
+          <a class="research-link" href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.111.034204" target="_blank">Read on APS Journals</a>
+        </div>
+      </div>
+      <!-- Future publications: copy and adapt the above block as needed -->
+    </div>
+  </div>
+  <footer>
+    <div class="social-links">
+      <a href="https://instagram.com/yourusername" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/yourusername" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/yourusername" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="email-link" href="mailto:heirtapaswet@gmail.com" title="Email"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+  </footer>
+</body>
+</html>

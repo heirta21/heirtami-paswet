@@ -2,47 +2,272 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heirtami Paswet - Personal Webpage</title>
+  <title>Heirtami Paswet | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts and Font Awesome for icons -->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:700,800|Merriweather:300" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; background: #f4f4f4; color: #333; }
-    .container { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
-    img { border-radius: 50%; width: 120px; display: block; margin-bottom: 20px; }
-    h1 { color: #2c3e50; }
-    .contact a { margin-right: 10px; text-decoration: none; color: #2980b9;}
-    .skills, .articles { margin-top: 20px; }
-    .skills ul, .articles ul { list-style-type: square; }
-    .articles h2 { margin-bottom: 5px; }
-    .lang-label { font-size: 0.95em; color: #888; margin-left: 5px; }
+    body {
+      font-family: 'Merriweather', serif;
+      background: #f7fafc;
+      margin: 0;
+      color: #232946;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav {
+      background: #232946;
+      color: #fff;
+      padding: 1.1rem 0 1.1rem 0;
+      text-align: center;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 1.13rem;
+      letter-spacing: 0.03em;
+      box-shadow: 0 2px 10px #0001;
+    }
+    .nav a, .nav .dropbtn {
+      color: #fff;
+      margin: 0 1.3rem;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+    }
+    .nav a:hover, .nav .dropbtn:hover {
+      color: #1a4d8f;
+    }
+    /* Dropdown styles */
+    .dropdown {
+      display: inline-block;
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #fff;
+      min-width: 130px;
+      box-shadow: 0 6px 24px #0002;
+      border-radius: 6px;
+      z-index: 10;
+      border: 1px solid #e0e6ef;
+    }
+    .dropdown-content a {
+      color: #232946;
+      padding: 0.7em 1.2em;
+      display: block;
+      text-align: left;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      transition: background 0.2s, color 0.2s;
+      margin: 0;
+    }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-content a:hover {
+      background: #f0f4fa;
+      color: #1a4d8f;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2.5rem auto 1rem auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 32px #0001;
+      padding: 2.5rem 2rem;
+      flex: 1 0 auto;
+    }
+    h1, h2, h3 {
+      font-family: 'Work Sans', sans-serif;
+      margin-top: 0;
+      color: #232946;
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #1a4d8f;
+    }
+    .intro p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    .section {
+      margin-bottom: 2.2rem;
+    }
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: space-between;
+      margin: 2.2rem 0 0 0;
+    }
+    .highlight-card {
+      background: #f0f4fa;
+      border-left: 5px solid #1a4d8f;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px #0001;
+      padding: 1.3rem 1.2rem;
+      flex: 1 1 210px;
+      min-width: 210px;
+      max-width: 48%;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .highlight-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+      color: #1a4d8f;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+    }
+    .highlight-card p {
+      margin: 0 0 0.7rem 0;
+      color: #333;
+      font-size: 1.05rem;
+    }
+    .highlight-card .btn {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #1a4d8f;
+      color: #fff;
+      padding: 0.5rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #174072;
+    }
+    @media (max-width: 800px) {
+      .highlights { flex-direction: column; gap: 1rem; }
+      .highlight-card { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 1rem; }
+      .intro h1 { font-size: 2rem; }
+      .nav a, .nav .dropbtn { margin: 0 0.6rem; }
+      footer { font-size: 1rem; }
+    }
+    /* Footer styles */
+    footer {
+      background: #232946;
+      color: #fff;
+      padding: 1.2rem 0 1rem 0;
+      text-align: center;
+      border-radius: 0 0 14px 14px;
+      margin: 0 auto;
+      max-width: 900px;
+      width: 100%;
+      font-size: 1.1rem;
+    }
+    .social-links a {
+      color: #fff;
+      margin: 0 0.7rem;
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: color 0.2s;
+      vertical-align: middle;
+    }
+    .social-links a:hover {
+      color: #1a4d8f;
+    }
+    .email-link {
+      color: #fff;
+      margin-left: 1rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      vertical-align: middle;
+    }
+    .email-link:hover {
+      text-decoration: underline;
+      color: #1a4d8f;
+    }
   </style>
 </head>
 <body>
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
+      <span class="dropbtn">Articles <i class="fas fa-caret-down" style="font-size:0.85em;"></i></span>
+      <div class="dropdown-content">
+        <a href="articles-pnar.html">Pnar</a>
+        <a href="articles-english.html">English</a>
+      </div>
+    </div>
+    <a href="photos.html">Photos</a>
+    <a href="research.html">Research</a>
+    <a href="resume.html">Resume</a>
+  </div>
   <div class="container">
-    <!-- Profile photo placeholder -->
-    <!-- <img src="your-photo.jpg" alt="Heirtami Paswet"> -->
-    <h1>Heirtami Paswet</h1>
-    <p><strong>About Me:</strong> MSc graduate in Physics. Pursuing a PhD.</p>
-    <div class="contact">
-      <strong>Contact:</strong>
-      <a href="mailto:heirtapaswet@gmail.com">heirtapaswet@gmail.com</a>
-      <!-- Add more links as needed -->
+    <div class="intro">
+      <h1>Welcome! I'm Heirtami Paswet</h1>
+      <p><strong>Researcher&nbsp;|&nbsp;Teacher&nbsp;|&nbsp;Writer</strong></p>
     </div>
-    <div class="skills">
-      <h2>Skills & Interests</h2>
-      <ul>
-        <li>Reading is my hobby</li>
-        <!-- Add more skills/interests if desired -->
-      </ul>
+
+    <div class="section">
+      <h2>About Me</h2>
+      <p>
+        Hello! I hail from the verdant hills of Meghalaya, India. I am currently pursuing a PhD in Physics at IIT Bombay, and I’m passionate about teaching, research, and writing. This personal webpage is a home for my articles in both Pnar and English—sharing stories, science, and ideas from my journey. I hope you enjoy exploring!
+      </p>
     </div>
-    <div class="articles">
-      <h2>My Articles</h2>
-      <ul>
-        <li>Article Title 1 <span class="lang-label">(Pnar)</span></li>
-        <li>Article Title 2 <span class="lang-label">(English)</span></li>
-        <!-- Add more articles with links or descriptions -->
-      </ul>
-      <!-- You can link to your articles or upload them later -->
+
+    <div class="highlights">
+      <div class="highlight-card">
+        <h3><i class="fas fa-newspaper"></i> Articles</h3>
+        <p>Read my latest articles in both Pnar and English, covering science, culture, and personal reflections.</p>
+        <a class="btn" href="articles-pnar.html">Browse Pnar</a>
+        <a class="btn" style="margin-left:0.7em;" href="articles-english.html">Browse English</a>
+      </div>
+      <div class="highlight-card">
+        <h3><i class="fas fa-camera-retro"></i> Photos</h3>
+        <p>Explore my photo gallery—moments from research, travel, and everyday life in Meghalaya and beyond.</p>
+        <a class="btn" href="photos.html">View Photos</a>
+      </div>
+      <div class="highlight-card">
+        <h3><i class="fas fa-flask"></i> Research</h3>
+        <p>Discover my research interests, current projects, and recent achievements in physics.</p>
+        <a class="btn" href="research.html">Explore Research</a>
+      </div>
+      <div class="highlight-card">
+        <h3><i class="fas fa-file-alt"></i> Resume</h3>
+        <p>View or download my academic CV, education background, and professional experience.</p>
+        <a class="btn" href="resume.html">See Resume</a>
+      </div>
     </div>
   </div>
+  <footer>
+    <div class="social-links">
+      <a href="https://instagram.com/yourusername" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/yourusername" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/yourusername" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="email-link" href="mailto:heirtapaswet@gmail.com" title="Email"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+  </footer>
 </body>
 </html>
